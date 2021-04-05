@@ -281,12 +281,13 @@ object Game {
                     }
 
                     // If a move has equal values, this checks a random value if it should change the best position or not.
-                    else if(DoOrDont()){
+                    else if(maxBlockPatternCount == currentPosiotionBlockCount && DoOrDont()){
                         maxWinPatternCount = currentPositionWinsCount
                         maxBlockPatternCount = currentPosiotionBlockCount
                         bestPosition = position
                     }
                 }
+                println("pos: $position max: $maxWinPatternCount attack: $currentPositionWinsCount max: $maxBlockPatternCount block: $currentPosiotionBlockCount")
             }
 
         }
