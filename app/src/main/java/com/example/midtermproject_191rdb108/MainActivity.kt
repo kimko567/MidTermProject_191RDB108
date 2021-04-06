@@ -167,7 +167,7 @@ class MainActivity : AppCompatActivity() {
      * Expect value of android.view.View and value of type Long that determines how long is the computer move dealyed before being executed.
      */
     fun computerMove(view: View, delayTime: Long){
-        var computerMoveHandler: Handler = Handler()
+        var computerMoveHandler: Handler = Handler(android.os.Looper.myLooper()!!)
         var computerMoveRunnable: Runnable = Runnable {
             val computerMovePosition: Int = Game.computerMove()
             if (!Game.getO_X()) {
@@ -284,7 +284,7 @@ class MainActivity : AppCompatActivity() {
      */
     fun greetingDialog(view: View){
 
-        // Creates the vuilder for the dialog.
+        // Creates the builder for the dialog.
         var builder = AlertDialog.Builder(view.context)
 
         // Sets the message for the dialog.
@@ -294,7 +294,7 @@ class MainActivity : AppCompatActivity() {
         var dialog = builder.show()
 
         // Ensures that dialog disappears after given time.
-        var dialogDismissHandler: Handler = Handler()
+        var dialogDismissHandler: Handler = Handler(android.os.Looper.myLooper()!!)
         var dismissRunnable: Runnable = Runnable {
             dialog.dismiss()
         }
